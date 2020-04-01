@@ -1,0 +1,35 @@
+customization:
+  distribution_code_name: Squirrel
+  distribution_version: 0.14.3
+  generator: "Squirrel::UIStyleSettings"
+  modified_time: "Tue Mar 31 17:56:14 2020"
+  rime_version: 1.5.3
+patch:
+  "style/color_scheme": wii
+  "style/horizontal": true #横排显示
+
+  # "style/font_face": "Microsoft YaHei" #字体
+  "style/font_point": 15 #字体大小
+  "style/inline_preedit": true # 嵌入式候选窗单行显示
+
+  "style/layout/border_width": 0
+  "style/layout/border": 0
+  "style/layout/margin_x": 12 #候选字左右边距
+  "style/layout/margin_y": 12 #候选字上下边距
+  "style/layout/hilite_padding": 12 #候选字背景色色块高度 若想候选字背景色块无边界填充候选框，仅需其高度和候选字上下边距一致即可
+  "style/layout/hilite_spacing": 3 # 序号和候选字之间的间隔
+  "style/layout/spacing": 10 #作用不明
+  "style/layout/candidate_spacing": 24 # 候选字间隔
+  "style/layout/round_corner": 0 #候选字背景色块圆角幅度
+
+# 注：预设的配色方案及代码（指定为 style/color_scheme ）
+#   碧水 - aqua
+#   青天 - azure
+#   明月 - luna
+#   墨池 - ink
+#   孤寺 - lost_temple
+#   暗堂 - dark_temple
+#   星际我争霸 - starcraft
+#   谷歌 - google
+#   晒经石 - solarized_rock
+#   简约白 - clean_white
