@@ -17,3 +17,4 @@
 # no comment
 苹果	agjs	1
 领证	wyyg	1
+安卓	pvhj	1
