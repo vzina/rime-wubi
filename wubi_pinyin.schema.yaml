@@ -43,19 +43,18 @@ engine:
   translators:
     - punct_translator
     - reverse_lookup_translator
-    - table_translator@custom_phrase
     - table_translator
     - lua_translator@date_translator # 自定义系统变量输出
     - lua_translator@calculator # 计算器：二元运算，coco 开头，如 coco56*34 coco24/1024
 
 # 定义词库
-# custom_phrase:
-#   dictionary: ""
-#   user_dict: custom_phrase
-#   db_class: stabledb
-#   enable_completion: false
-#   enable_sentence: false
-#   initial_quality: 1
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1
 
 speller:
   delimiter: " ;'"

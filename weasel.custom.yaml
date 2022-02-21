@@ -7,6 +7,20 @@ customization:
 patch:
   style:
     color_scheme: Win10
+    horizontal: true
+    inline_preedit: true
+    font_face: "Microsoft YaHei" #字体
+    font_point: 13 #字体大小
+    layout:
+      border_width: 0
+      border: 0
+      margin_x: 12
+      margin_y: 12 #候选字上下边距
+      hilite_padding: 12 #候选字背景色色块高度 若想候选字背景色块无边界填充候选框，仅需其高度和候选字上下边距一致即可
+      hilite_spacing: 3 # 序号和候选字之间的间隔
+      spacing: 10 #作用不明
+      candidate_spacing: 24 # 候选字间隔
+      round_corner: 0 #候选字背景色块圆角幅度
 
   # win 10皮肤风格
   preset_color_schemes:
@@ -26,20 +40,4 @@ patch:
       hilited_label_color: 0xffffff
       label_color: 0x888888
       label_format: "%s"
-      font_point: 16
-      inline_preedit: true
-      min_width: 160
-      min_height: 0
-      border_width: 6
-      border_height: 6
-      margin_x: 12
-      margin_y: 12
-      spacing: 10
-      candidate_spacing: 24
-      hilite_spacing: 8
-      hilite_padding: 12
-      round_corner: 0
-      horizontal: true
       candidate_format: "%c %@  "
-      # corner_radius: 5
-      # label_font_point: 12
