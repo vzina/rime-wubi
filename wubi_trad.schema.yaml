@@ -48,6 +48,8 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - lua_translator@date_translator # 自定义系统变量输出
+    - lua_translator@calculator # 计算器：二元运算，coco 开头，如 coco56*34 coco24/1024
   filters:
     - simplifier
     - uniquifier
@@ -78,7 +80,13 @@ reverse_lookup:
     - xform/([jqxy])v/$1u/
 
 simplifier:
-  opencc_config: s2t.json
+  #  opencc_config: s2t.json
+  #  opencc_config: s2hk.json  # 繁 -> 香港
+  #  opencc_config: t2s.json   # 繁 -> 简
+  #  opencc_config: t2tw.json  # 繁 -> 台湾
+  #  opencc_config: t2hk.json  # 繁 -> 香港
+  opencc_config: s2tw.json  # 簡 -> 臺灣標準
+  #  opencc_config: s2twp.json  # 簡 -> 臺灣片語
   option_name: zh_trad
 
 punctuator:
@@ -91,3 +99,4 @@ recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "`[a-z]*'?$"
+    calculator: "^coco.*$" # 计算器
