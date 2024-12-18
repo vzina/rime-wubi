@@ -45,7 +45,6 @@ engine:
     - reverse_lookup_translator
     - table_translator
     - lua_translator@date_translator # 自定义系统变量输出
-    - lua_translator@calculator # 计算器：二元运算，coco 开头，如 coco56*34 coco24/1024
 
 # 定义词库
 custom_phrase:
@@ -97,4 +96,3 @@ recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "`[a-z]*'?$"
-    calculator: "^coco.*$" # 计算器

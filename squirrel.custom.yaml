@@ -5,6 +5,9 @@ customization:
   modified_time: "Tue Mar 31 17:56:14 2020"
   rime_version: 1.5.3
 patch:
+  menu:
+    # 候选词个数
+    page_size: 6
   style:
     color_scheme: Mac
 

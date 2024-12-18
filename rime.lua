@@ -12,12 +12,18 @@ function date_translator(input, seg)
       --- Candidate(type, start, end, text, comment)
       yield(Candidate("time", seg.start, seg._end, os.date("%Y-%m-%d %H:%M:%S"), ""))
       yield(Candidate("time", seg.start, seg._end, os.time(), "时间戳"))
+      yield(Candidate("time", seg.start, seg._end, os.date("%Y%m%d%H%M%S"), ""))
    end
 
    if (input == "week") then
       local weakTab = {'日', '一', '二', '三', '四', '五', '六'}
       yield(Candidate("week", seg.start, seg._end, "周"..weakTab[tonumber(os.date("%w")+1)], ""))
       yield(Candidate("week", seg.start, seg._end, "星期"..weakTab[tonumber(os.date("%w")+1)], ""))
+   end
+
+   if (input == "month") then
+      yield(Candidate("month", seg.start, seg._end, os.date("%Y-%m"), ""))
+      yield(Candidate("month", seg.start, seg._end, os.date("%Y%m"), ""))
    end
 end
 
@@ -34,22 +40,4 @@ function single_char_first_filter(input)
    for i, cand in ipairs(l) do
       yield(cand)
    end
-end
-
---- 计算器
-function calculator(input, seg)
-    if string.find(input, 'coco') ~= nil then -- 匹配 coco 开头的字符串
-        local _, _, a, operation, b = string.find(input, "coco(%d+%.?)([%+%-%*/])(%d+%.?)")
-        local result = 0
-        if operation == '+' then
-            result = a + b
-        elseif operation == '-' then
-            result = a - b
-        elseif operation == '*' then
-            result = a * b
-        elseif operation == '/' then
-            result = a / b
-        end
-        yield(Candidate("coco", seg.start, seg._end, result, "计算器"))
-    end
 end
