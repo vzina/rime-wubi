@@ -4,44 +4,54 @@ customization:
   generator: "Squirrel::UIStyleSettings"
   modified_time: "Tue Mar 31 17:56:14 2020"
   rime_version: 1.5.3
+
 patch:
-  menu:
-    # 候选词个数
-    page_size: 6
-  style:
-    # 颜色方案
-    color_scheme: Mac
+  # ===================== 全局样式核心配置（Rime 全版本兼容写法） =====================
+  # 说明：采用 style/xxx 路径写法（patch 标准语法），兼容所有 Rime 版本
+  style/color_scheme: mac                # 亮色模式启用的配色方案名称
+  style/color_scheme_dark: mac_dark      # 暗黑模式启用的配色方案名称
 
-  # iTerm2 专属强制配置（优先级最高）
-  app_options/com.googlecode.iterm2:
-    inline_preedit: false
-    horizontal: false
-    ascii_mode: false        # 保持中文输入模式
-    # 强制候选框位置（终端中贴紧光标下方）
-    candidate_position: below
+  # 布局与排版
+  style/candidate_list_layout: linear    # 候选词布局方式：linear=横向 / stacked=纵向
+  style/text_orientation: horizontal     # 文字排列方向：horizontal=水平 / vertical=垂直
+  style/candidate_format: "[label]. [candidate] [comment] \u200a"  # 候选词显示格式（序号. 候选词 注释 + 窄空格）
 
+  # 状态与交互
+  style/status_message_type: mix         # 状态栏消息类型：mix=混合 / long=完整 / short=精简
+  style/memorize_size: true              # 候选框贴屏幕边缘时是否保持尺寸（粘性）
+
+  # 字体配置
+  style/font_face: "PingFang SC"         # 全局字体（候选词/序号/注释统一使用苹方）
+  style/font_point: 18                   # 候选词基础字号
+  style/label_font_point: 16             # 候选词序号字号
+  style/comment_font_point: 16           # 候选词注释字号
+
+  # 边框配置
+  style/border_height: 0                 # 候选框上下边框高度
+  style/border_width: 0                  # 候选框左右边框宽度
+
+  # ===================== 预设配色方案 =====================
   preset_color_schemes:
-    Mac:
-      author: "weijian.ye"
-      name: "Mac"
-      back_color: 0xffffff              #设置输入条的背景色，色值是按照BGR的形式16进制填写
-      corner_radius: 5                  #设置输入条的圆角效果
-      border_height: 4                  #设置输入条上下宽度
-      dborder_width: 4                  #设置输入条左右宽度
-      border_color: 0x9f62e8            #输入条边框颜色，似乎在横向模式下不起作用
-      border_color_width: 0             #输入条边框宽度
-      candidate_format: "%c %@  "       #设置每个候选词之间的间隔距离，%c代表备选的数字，%@代表候选字，可以通过输入空格的形式来调整每个候选字之间的间隔距离
-      candidate_text_color: 0x333333    #候选字颜色
-      font_face: PingFangSC             #字体
-      font_point: 16                    #字体大小
-      text_color: 0x333333              #普通候选字的颜色，非第一候选字
-      hilited_candidate_label_color: 0xffffff   #第一候选字标签颜色，也就是数字1
-      hilited_text_color: 0xffffff              #第一候选字颜色
-      hilited_candidate_back_color: 0xD05B21    #第一候选字高亮颜色（背景色）
-      hilited_corner_radius: 5                  #第一候选字高亮颜色的圆角，当不设置时就是一整块的颜色，设置了圆角之后就带有圆角效果了
-      horizontal: true                  #设置水平还是竖直模式
-      inline_preedit: true              #设置是否双行显示
-      text_orientation: "horizontal"    #水平排列
-      candidate_list_layout: "linear"
-      label_color: 0x888888             #普通标签的颜色(非第一候选字)，也就是候选字数字
-      label_font_point: 12              #普通标签的字体大小
+    # macOS 亮色模式配色
+    mac:
+      name: macOS Light                  # 配色方案名称（显示用）
+      back_color: 0xf1f2f2               # 候选框整体背景色（浅灰）
+      label_color: 0x808080              # 未高亮候选词序号颜色（中灰）
+      candidate_text_color: 0x494949     # 未高亮候选词文字颜色（深灰）
+      comment_text_color: 0x494949       # 未高亮候选词注释颜色（深灰）
+      hilited_candidate_back_color: 0xd85a00  # 高亮候选词背景色（橙红色）
+      hilited_candidate_label_color: 0xffffff # 高亮候选词序号颜色（纯白）
+      hilited_candidate_text_color: 0xffffff  # 高亮候选词文字颜色（纯白）
+      hilited_comment_text_color: 0xffffff    # 高亮候选词注释颜色（纯白）
+
+    # macOS 暗黑模式配色
+    mac_dark:
+      name: macOS Dark                   # 配色方案名称（显示用）
+      back_color: 0x393939               # 候选框整体背景色（深灰）
+      label_color: 0x7b7b7b              # 未高亮候选词序号颜色（浅灰）
+      candidate_text_color: 0xebebeb     # 未高亮候选词文字颜色（近白）
+      comment_text_color: 0xebebeb       # 未高亮候选词注释颜色（近白）
+      hilited_candidate_back_color: 0xd15900  # 高亮候选词背景色（橙红色）
+      hilited_candidate_label_color: 0xffffff # 高亮候选词序号颜色（纯白）
+      hilited_candidate_text_color: 0xffffff  # 高亮候选词文字颜色（纯白）
+      hilited_comment_text_color: 0xffffff    # 高亮候选词注释颜色（纯白）
