@@ -75,6 +75,7 @@ translator:
 abc_segmentor:
   extra_tags:
     - reverse_lookup
+    - pinyin  # 新增：标记拼音输入片段
 
 reverse_lookup:
   dictionary: pinyin_simp
@@ -96,3 +97,6 @@ recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "`[a-z]*'?$"
+    pinyin: "^[a-z]{2,}$"  # 新增：识别2个及以上字母的纯拼音输入（区分五笔单码/双码）
+    email: "^[-_.0-9A-Za-z]+@.*$"  # 保留：邮箱识别，避免误判
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$"  # 保留：网址识别
