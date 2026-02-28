@@ -9,9 +9,18 @@ patch:
     # 候选词个数
     page_size: 6
   style:
+    # 颜色方案
     color_scheme: Mac
     text_orientation: "horizontal"
     candidate_list_layout: "linear"
+
+  # iTerm2 专属强制配置（优先级最高）
+  app_options/com.googlecode.iterm2:
+    inline_preedit: false
+    horizontal: false
+    ascii_mode: false        # 保持中文输入模式
+    # 强制候选框位置（终端中贴紧光标下方）
+    candidate_position: below
 
   preset_color_schemes:
     Mac:
